@@ -1,6 +1,4 @@
 import { Router, Request, Response } from 'express';
-import multer from 'multer';
-import uploadConfig from './config/multer';
 
 import { CreateUserController } from './controllers/user/CreateUserController';
 import { AuthUserController } from './controllers/user/AuthUserController';
@@ -18,8 +16,6 @@ import { SendOrderController } from './controllers/order/SendOrderController';
 import { ListOrderController } from './controllers/order/ListOrderController';
 import { DetailOrderController } from './controllers/order/DetailOrderController';
 import { FinishOrderController } from './controllers/order/FinishOrderController';
-
-const upload = multer(uploadConfig.upload("./tmp"));
 
 const router = Router();
 // rotas user
