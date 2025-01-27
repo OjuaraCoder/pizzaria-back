@@ -1,6 +1,6 @@
-import { json, Request, Response } from "express";
+import { Request, Response } from "express";
 import { CreateProductService } from "../../services/product/CreateProductService";
-import { UploadedFile } from "express-fileupload";
+import { UploadedFile, FileArray  } from "express-fileupload";
 import { v2 as cloudinary, UploadApiResponse } from "cloudinary";
 
 
@@ -18,7 +18,10 @@ class CreateProductController {
     if (!req.files || Object.keys(req.files).length === 0) {
       throw new Error("error upload file image");
     } else {
-      const file: UploadedFile = req.files['file'];
+      
+      const image = req.files['file'];
+      if (Array.isArray(image))  return;
+      const file = image as UploadedFile;
 
       const resultFile:UploadApiResponse = await new Promise((resolve, reject ) =>{
         cloudinary.uploader.upload_stream({}, function (error, result){
