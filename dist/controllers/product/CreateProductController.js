@@ -25,7 +25,10 @@ class CreateProductController {
                 throw new Error("error upload file image");
             }
             else {
-                const file = req.files['file'];
+                const image = req.files['file'];
+                if (Array.isArray(image))
+                    return;
+                const file = image;
                 const resultFile = yield new Promise((resolve, reject) => {
                     cloudinary_1.v2.uploader.upload_stream({}, function (error, result) {
                         if (error) {
