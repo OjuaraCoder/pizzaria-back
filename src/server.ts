@@ -1,6 +1,9 @@
 //SITES UTILIZADOS NESSE PROJETO
 //https://jwt.io/ -- PARA GERAR NOSSA CHAVE JWT
 //https://www.md5hashgenerator.com/ -- PARA GERAR NOSSA CHAVE DE COMPOSICAO PARA O JWT
+//https://console.neon.tech/app/projects -- manipular o postgree , login via github
+//https://vercel.com/ojuaracoders-projects -- hospedar o back e o front do projeto, login via github
+//https://expo.dev/ facilitador para realizar testes no android
 
 import express, { Request, Response, NextFunction } from "express";
 import "express-async-errors";
